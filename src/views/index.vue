@@ -30,10 +30,11 @@
     </div>
     <div class="message">
       <div class="tools"></div>
+      <div class="textarea"></div>
+      <div class="execute"></div>
     </div>
   </div>
 </template>
-
 <script>
 export default {
   data () {
@@ -53,5 +54,37 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-
+#chat-room {
+  position: relative;
+  top: 80px;
+  left: 10%;
+  background: #d5e6f6;
+  width: 620px;
+  height: 620px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 1px #bbb;
+  z-index: 100;
+  .head {
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    cursor: default;
+    border-bottom: 1px solid #ddd;
+  }
+  .content {
+    position: absolute;
+    top: 80px;
+    height: 430px;
+    width: 100%;
+    overflow-y: scroll;
+  }
+  .message {
+    position: absolute;
+    bottom:0;
+    width: 100%;
+    height: 110px;
+    margin: 10px 0;
+    border-top: 1px solid #ddd;
+  }
+}
 </style>
