@@ -19,8 +19,18 @@
         <div class="item"></div>
       </div>
     </div>
-    <div class="content"></div>
-    <div class="message"></div>
+    <div class="content">
+      <div class="container">
+        <div class="read-more">
+          <p>查看更多消息</p>
+        </div>
+        <div class="msg-panel">
+        </div>
+      </div>
+    </div>
+    <div class="message">
+      <div class="tools"></div>
+    </div>
   </div>
 </template>
 
