@@ -4,9 +4,8 @@
       <div class="info">
         <div class="avatar">
           <img :src="you.imgUrl" draggable="false">
-          <p class="name">{{you.name}}</p>
-          <p class="state">{{you.state}}</p>
         </div>
+        <p class="name">{{you.name}}</p>
       </div>
       <div class="menu">
         <div class="item close"></div>
@@ -36,13 +35,13 @@
   </div>
 </template>
 <script>
+import youImg from '@/assets/images/avatar_2.jpg'
 export default {
   data () {
     return {
       you: {
-        name: '对方',
-        state: '这里应该是状态',
-        imgUrl: '',
+        name: '夜喵。',
+        imgUrl: youImg,
         msg: '待发送的消息'
       },
       me: {
@@ -70,6 +69,28 @@ export default {
     height: 80px;
     cursor: default;
     border-bottom: 1px solid #ddd;
+    .info {
+      height: 35px;
+      margin: 5px 0;
+      .avatar {
+        float: left;
+        height: 35px;
+        width: 35px;
+        margin: 0 10px;
+        border: 1px solid #c8d7e6;
+        border-radius: 50%;
+        overflow: hidden;
+        img {
+        }
+      }
+      .name {
+        display: inline-block;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 35px;
+        text-shadow: 0 0 0 #000; // 模拟字体加粗的效果，font-weight无法微调
+      }
+    }
   }
   .content {
     position: absolute;
@@ -80,7 +101,7 @@ export default {
   }
   .message {
     position: absolute;
-    bottom:0;
+    bottom: 0;
     width: 100%;
     height: 110px;
     margin: 10px 0;
