@@ -32,7 +32,16 @@
       </div>
     </div>
     <div class="message">
-      <div class="tools"></div>
+      <div class="tools">
+        <ul class="list left">
+          <li class="item" v-for="(item, index) in res.msgTools" :key="index">
+            <img :src="item.src" :alt="item.name">
+          </li>
+        </ul>
+        <div class="moremsg">
+          <span>消息记录</span>
+        </div>
+      </div>
       <div class="textarea"></div>
       <div class="execute"></div>
     </div>
@@ -76,7 +85,7 @@ export default {
         menu: [
           {
             name: '设置',
-            src: '/static/images/menu/set.png'
+            src: '/static/images/menu/setting.png'
           },
           {
             name: '缩小',
@@ -89,6 +98,44 @@ export default {
           {
             name: '关闭',
             src: '/static/images/menu/close.png'
+          }
+        ],
+        msgTools: [
+          {
+            name: '字体',
+            src: '/static/images/msg-tools/font.png'
+          },
+          {
+            name: '表情',
+            src: '/static/images/msg-tools/face.png'
+          },
+          {
+            name: 'GIF',
+            src: '/static/images/msg-tools/gif.png'
+          },
+          {
+            name: '窗口抖动',
+            src: '/static/images/msg-tools/twitter.png'
+          },
+          {
+            name: '语音消息',
+            src: '/static/images/msg-tools/record.png'
+          },
+          {
+            name: '图片',
+            src: '/static/images/msg-tools/sendpic.png'
+          },
+          {
+            name: '音乐',
+            src: '/static/images/msg-tools/music.png'
+          },
+          {
+            name: '截图',
+            src: '/static/images/msg-tools/cut.png'
+          },
+          {
+            name: '红包',
+            src: '/static/images/msg-tools/hb.png'
           }
         ]
       },
@@ -170,8 +217,8 @@ export default {
           float: left;
           margin-left: 0px;
           img {
-            width: 30px;
-            height: 30px;
+            width: 29px;
+            height: 29px;
           }
         }
       }
@@ -191,6 +238,26 @@ export default {
     height: 110px;
     margin: 10px 0;
     border-top: 1px solid #ddd;
+    .tools {
+      height: 30px;
+      margin: 5px 0;
+      .list {
+        float: left;
+        height: 100%;
+        margin-left: 10px;
+        .item {
+          float: left;
+          margin-right: 10px;
+          img {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+      .moremsg {
+        float: right;
+      }
+    }
   }
 }
 </style>
