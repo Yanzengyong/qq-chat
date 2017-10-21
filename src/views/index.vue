@@ -42,8 +42,13 @@
           <span>消息记录</span>
         </div>
       </div>
-      <div class="textarea"></div>
-      <div class="execute"></div>
+      <div class="textarea">
+        <textarea class="msg-content" id="w234" name="yourmsg" v-model="me.msg"></textarea>
+        <div class="execute">
+          <button class="btn">发送(S)</button>
+          <button class="btn">关闭(C)</button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -137,7 +142,8 @@ export default {
             name: '红包',
             src: '/static/images/msg-tools/hb.png'
           }
-        ]
+        ],
+        more: '/static/images/tools/more.png'
       },
       you: {
         name: '夜喵。',
@@ -146,7 +152,7 @@ export default {
       },
       me: {
         imgUrl: '',
-        msg: ''
+        msg: '斯蒂芬'
       }
     }
   }
@@ -162,6 +168,7 @@ export default {
   height: 620px;
   border-radius: 5px;
   box-shadow: 0px 0px 10px 1px #bbb;
+  font-family: "Microsoft Yahei";
   z-index: 100;
   .head {
     position: absolute;
@@ -235,12 +242,11 @@ export default {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 110px;
-    margin: 10px 0;
+    height: 130px;
     border-top: 1px solid #ddd;
     .tools {
-      height: 30px;
-      margin: 5px 0;
+      height: 25px;
+      margin-top: 10px;
       .list {
         float: left;
         height: 100%;
@@ -256,6 +262,57 @@ export default {
       }
       .moremsg {
         float: right;
+        margin-right: 10px;
+        font-size: 13px;
+        text-shadow: 0 0 0 #000;
+      }
+    }
+    .textarea {
+      height: calc(100% - 35px);
+      margin: 0 5px;
+      .msg-content {
+        height: calc(100% - 35px);
+        width: 100%;
+        outline: none;
+        resize: none;
+        border: none;
+        background: transparent;
+        font-family: "Microsoft Yahei";
+        font-size: 14px;
+        font-weight: 500;
+        text-shadow: 0 0 0 #000;
+        &::-webkit-scrollbar {
+          background: transparent;
+          width: 10px;
+          &:hover {
+            border-radius: 5px;
+          }
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: #bdbdbd;
+          border-radius: 5px;
+          &:hover {
+          }
+        }
+      }
+      .execute {
+        height: 35px;
+        margin-right: 5px;
+        .btn {
+          float: right;
+          background: #069dd5;
+          color: #fff;
+          font-size: 12px;
+          border: none;
+          padding: 4px 15px;
+          border-radius: 3px;
+          margin-left: 5px;
+          &:hover {
+            background: #4bcaff;
+          }
+          span {
+          }
+        }
       }
     }
   }
