@@ -7,15 +7,19 @@
         </div>
         <p class="name">{{you.name}}</p>
       </div>
-      <div class="menu">
-        <div class="item close"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-      </div>
       <div class="tools">
-        <div class="item"></div>
-        <div class="item"></div>
+        <ul class="list">
+          <li class="item" v-for="(item, index) in res.tools" :key="index">
+            <img :src="item.src" :alt="item.name">
+          </li>
+        </ul>
+      </div>
+      <div class="menu">
+        <ul class="list">
+          <li class="item" v-for="(item, index) in res.menu" :key="index">
+            <img :src="item.src" :alt="item.name">
+          </li>
+        </ul>
       </div>
     </div>
     <div class="content">
@@ -35,13 +39,62 @@
   </div>
 </template>
 <script>
-import youImg from '@/assets/images/avatar_2.jpg'
 export default {
   data () {
     return {
+      res: {
+        tools: [
+          {
+            name: '音频',
+            src: '/static/images/tools/toobar_audio.png'
+          },
+          {
+            name: '视频',
+            src: '/static/images/tools/toobar_video.png'
+          },
+          {
+            name: '远程演示',
+            src: '/static/images/tools/toobar_screen_share.png'
+          },
+          {
+            name: '传送文件',
+            src: '/static/images/tools/toobar_send.png'
+          },
+          {
+            name: '远程控制',
+            src: '/static/images/tools/toobar_remote.png'
+          },
+          {
+            name: '发起多人聊天',
+            src: '/static/images/tools/toobar_add.png'
+          },
+          {
+            name: '应用',
+            src: '/static/images/tools/toobar_app.png'
+          }
+        ],
+        menu: [
+          {
+            name: '设置',
+            src: '/static/images/menu/set.png'
+          },
+          {
+            name: '缩小',
+            src: '/static/images/menu/min.png'
+          },
+          {
+            name: '放大',
+            src: '/static/images/menu/max.png'
+          },
+          {
+            name: '关闭',
+            src: '/static/images/menu/close.png'
+          }
+        ]
+      },
       you: {
         name: '夜喵。',
-        imgUrl: youImg,
+        imgUrl: '/static/images/avatar_2.jpg',
         msg: '待发送的消息'
       },
       me: {
@@ -71,7 +124,7 @@ export default {
     border-bottom: 1px solid #ddd;
     .info {
       height: 35px;
-      margin: 5px 0;
+      margin: 5px 0 0;
       .avatar {
         float: left;
         height: 35px;
@@ -89,6 +142,38 @@ export default {
         font-weight: 500;
         line-height: 35px;
         text-shadow: 0 0 0 #000; // 模拟字体加粗的效果，font-weight无法微调
+      }
+    }
+    .tools {
+      height: 30px;
+      margin: 10px 0 0;
+      .list {
+        height: 100%;
+        margin-left: 10px;
+        .item {
+          float: left;
+          margin-right: 10px;
+          img {
+            width: 22px;
+            height: 22px;
+          }
+        }
+      }
+    }
+    .menu {
+      position: absolute;
+      right: 0;
+      top: 0;
+      .list {
+        height: 30px;
+        .item {
+          float: left;
+          margin-left: 0px;
+          img {
+            width: 30px;
+            height: 30px;
+          }
+        }
       }
     }
   }
