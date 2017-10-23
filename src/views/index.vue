@@ -237,6 +237,23 @@ export default {
     height: 430px;
     width: 100%;
     overflow-y: scroll;
+    .container {
+      width: auto;
+      margin-left: 10px;
+      margin-right: 25px;
+    }
+    .read-more {
+      margin: 15px 0 20px;
+      p {
+        text-align: center;
+        cursor: pointer;
+        font-size: 15px;
+        color: #2786e4;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
   }
   .message {
     position: absolute;
