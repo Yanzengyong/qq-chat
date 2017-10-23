@@ -28,6 +28,15 @@
           <p>查看更多消息</p>
         </div>
         <div class="msg-panel">
+          <div v-for="(item, index) in msgList" :class="['msg-item', item.who]" :key="index">
+            <div class="avatar">
+              <img v-if="item.who === 'you'" :src="you.imgUrl">
+              <img v-else :src="me.imgUrl">
+            </div>
+            <div class="text">
+              <p>{{item.text}}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -151,9 +160,55 @@ export default {
         msg: '待发送的消息'
       },
       me: {
-        imgUrl: '',
+        imgUrl: './static/images/avatar_1.png',
         msg: '斯蒂芬'
-      }
+      },
+      msgList: [
+        {
+          text: '王医生，在不？',
+          who: 'you'
+        },
+        {
+          text: '在啊，怎么了？',
+          who: 'me'
+        },
+        {
+          text: '王医生，我的病还有救没？',
+          who: 'you'
+        },
+        {
+          text: '你的病情已经到了智障晚期，恐怕……',
+          who: 'me'
+        },
+        {
+          text: '卧槽，王医生，我还不想这么早就蠢死啊',
+          who: 'you'
+        },
+        {
+          text: '王医生，快救救我啊！',
+          who: 'you'
+        },
+        {
+          text: '唉，以你现在的症状，恐怕只能自宫了……',
+          who: 'me'
+        },
+        {
+          text: '自宫的话，我的智障还有救吗？',
+          who: 'you'
+        },
+        {
+          text: '嗯嗯，还有一定希望治愈',
+          who: 'me'
+        },
+        {
+          text: '好，你等等，我这就找菜刀去',
+          who: 'you'
+        },
+        {
+          text: '等等，我骗你的',
+          who: 'me'
+        }
+      ]
     }
   }
 }
@@ -234,7 +289,7 @@ export default {
   .content {
     position: absolute;
     top: 80px;
-    height: 430px;
+    height: 410px;
     width: 100%;
     overflow-y: scroll;
     .container {
@@ -254,6 +309,48 @@ export default {
         }
       }
     }
+    .msg-panel {
+      .msg-item {
+        width: 100%;
+        min-height: 50px;
+        margin: 10px 0;
+        &.you {
+          float: left;
+          .avatar {
+            float: left;
+          }
+          .text {
+            float: left;
+          }
+        }
+        &.me {
+          float: right;
+          .avatar {
+            float: right;
+          }
+          .text {
+            float: right;
+          }
+        }
+        .avatar {
+          img {
+            height: 40px;
+            width: 40px;
+            border-radius: 4px;
+            cursor: pointer;
+          }
+        }
+        .text {
+          background: #78cdf8;
+          padding: 10px;
+          margin: 0 15px;
+          border-radius: 10px;
+          p {
+            font-size: 16px;
+          }
+        }
+      }
+    }
   }
   .message {
     position: absolute;
@@ -261,6 +358,7 @@ export default {
     width: 100%;
     height: 130px;
     border-top: 1px solid #ddd;
+    background: #d5e6f6;
     .tools {
       height: 25px;
       margin-top: 10px;
