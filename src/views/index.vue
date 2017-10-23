@@ -291,7 +291,15 @@ export default {
     top: 80px;
     height: 410px;
     width: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      background: transparent;
+      width: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #bdbdbd;
+      border-radius: 5px;
+    }
     .container {
       width: auto;
       margin-left: 10px;
@@ -330,6 +338,8 @@ export default {
           }
           .text {
             float: right;
+            color: #fff;
+            background: #2683f5;
           }
         }
         .avatar {
