@@ -429,6 +429,7 @@ export default {
           color: #fff;
           font-size: 12px;
           border: none;
+          outline: none;
           padding: 4px 15px;
           border-radius: 3px;
           margin-left: 5px;
