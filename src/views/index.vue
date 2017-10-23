@@ -43,7 +43,7 @@
         </div>
       </div>
       <div class="textarea">
-        <textarea class="msg-content" id="w234" name="yourmsg" v-model="me.msg"></textarea>
+        <textarea class="msg-content" spellcheck="false" name="yourmsg" v-model="me.msg"></textarea>
         <div class="execute">
           <button class="btn">发送(S)</button>
           <button class="btn">关闭(C)</button>
