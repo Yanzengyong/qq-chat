@@ -22,7 +22,7 @@
         </ul>
       </div>
     </div>
-    <div class="content">
+    <div class="content" ref="msgContent">
       <div class="container">
         <div class="read-more">
           <p>查看更多消息</p>
@@ -210,6 +210,11 @@ export default {
         }
       ]
     }
+  },
+  mounted () {
+    this.$nextTick(() => {
+      this.$refs.msgContent.scrollTop = this.$refs.msgContent.scrollHeight
+    })
   }
 }
 </script>
