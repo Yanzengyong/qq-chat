@@ -302,90 +302,92 @@ export default {
     }
     .container {
       width: auto;
-      margin-left: 10px;
-      margin-right: 25px;
-    }
-    .read-more {
-      margin: 15px 0 20px;
-      p {
-        text-align: center;
-        cursor: pointer;
-        font-size: 15px;
-        color: #2786e4;
-        &:hover {
-          text-decoration: underline;
+      margin: 0 10px;
+      .read-more {
+        margin: 15px 0 20px;
+        p {
+          text-align: center;
+          cursor: pointer;
+          font-size: 15px;
+          color: #2786e4;
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
-    }
-    .msg-panel {
-      .msg-item {
+      .msg-panel {
+        display: inline-block;
+        height: 100%;
         width: 100%;
-        min-height: 50px;
-        margin: 10px 0;
-        .avatar {
-          position: relative;
-          height: 30px;
-          width: 30px;
-          img {
+        .msg-item {
+          width: 100%;
+          min-height: 50px;
+          margin: 10px 0;
+          .avatar {
+            position: relative;
             height: 30px;
             width: 30px;
-            border-radius: 50%;
-            cursor: pointer;
-          }
-        }
-        .text {
-          padding: 13px 10px;
-          margin: 0 15px;
-          border-radius: 6px;
-          z-index: 500;
-          p {
-            font-size: 13px;
-          }
-        }
-        &.you {
-          float: left;
-          .avatar {
-            float: left;
-            &::after {
-              position: absolute;
-              content: " ";
-              bottom: 10px;
-              right: -30px;
-              width: 75%;
-              height: 80%;
-              border-bottom: 7px solid #d3d7de;
-              border-left: 1px solid transparent;
-              border-right: 10px solid transparent;
-              border-radius: 50%/50%;
+            img {
+              height: 30px;
+              width: 30px;
+              border-radius: 50%;
+              cursor: pointer;
             }
           }
           .text {
-            float: left;
-            color: #000;
-            background: #d3d7de;
-          }
-        }
-        &.me {
-          float: right;
-          .avatar {
-            float: right;
-            &::after {
-              position: absolute;
-              content: " ";
-              bottom: 10px;
-              left: -30px;
-              width: 75%;
-              height: 80%;
-              border-bottom: 7px solid #009bdb;
-              border-left: 10px solid transparent;
-              border-right: 1px solid transparent;
-              border-radius: 50%/50%;
+            padding: 13px 10px;
+            margin: 0 15px;
+            border-radius: 6px;
+            z-index: 500;
+            p {
+              font-size: 13px;
             }
           }
-          .text {
+          &.you {
+            float: left;
+            .avatar {
+              float: left;
+              &::after {
+                position: absolute;
+                content: " ";
+                bottom: 10px;
+                right: -30px;
+                width: 75%;
+                height: 80%;
+                border-bottom: 7px solid #d3d7de;
+                border-left: 1px solid transparent;
+                border-right: 10px solid transparent;
+                border-radius: 50%/50%;
+              }
+            }
+            .text {
+              float: left;
+              color: #000;
+              background: #d3d7de;
+            }
+          }
+          &.me {
             float: right;
-            color: #fff;
-            background: #009bdb;
+            .avatar {
+              float: right;
+              &::after {
+                position: absolute;
+                content: " ";
+                bottom: 10px;
+                left: -30px;
+                width: 75%;
+                height: 80%;
+                border-bottom: 7px solid #009bdb;
+                border-left: 10px solid transparent;
+                border-right: 1px solid transparent;
+                border-radius: 50%/50%;
+              }
+            }
+            .text {
+              float: right;
+              color: #fff;
+              background: #009bdb;
+            }
           }
         }
       }
