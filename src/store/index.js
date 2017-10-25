@@ -6,7 +6,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
     you: {
-      name: '',
+      name: '夜喵',
       avatar: '',
       msg: ''
     },
