@@ -1,5 +1,6 @@
 <template>
-  <div id="chat-room">
+  <div>
+      <div id="chat-room">
     <div class="head">
       <div class="info">
         <div class="avatar">
@@ -59,6 +60,7 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 </template>
 <script>
