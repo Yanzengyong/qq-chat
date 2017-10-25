@@ -1,69 +1,70 @@
 <template>
   <div>
-      <div id="chat-room">
-    <div class="head">
-      <div class="info">
-        <div class="avatar">
-          <img :src="you.imgUrl" draggable="false">
+    <div id="chat-room">
+      <div class="head">
+        <div class="info">
+          <div class="avatar">
+            <img :src="you.avatar" draggable="false">
+          </div>
+          <p class="name">{{you.name}}</p>
         </div>
-        <p class="name">{{you.name}}</p>
-      </div>
-      <div class="tools">
-        <ul class="list">
-          <li class="item" v-for="(item, index) in res.tools" :key="index">
-            <img :src="item.src" :alt="item.name">
-          </li>
-        </ul>
-      </div>
-      <div class="menu">
-        <ul class="list">
-          <li class="item" v-for="(item, index) in res.menu" :key="index">
-            <img :src="item.src" :alt="item.name">
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="content" ref="msgContent">
-      <div class="container">
-        <div class="read-more">
-          <p>查看更多消息</p>
+        <div class="tools">
+          <ul class="list">
+            <li class="item" v-for="(item, index) in res.tools" :key="index">
+              <img :src="item.src" :alt="item.name">
+            </li>
+          </ul>
         </div>
-        <div class="msg-panel">
-          <div v-for="(item, index) in msgList" :class="['msg-item', item.who]" :key="index">
-            <div class="avatar">
-              <img v-if="item.who === 'you'" :src="you.imgUrl">
-              <img v-else :src="me.imgUrl">
-            </div>
-            <div class="text">
-              <p>{{item.text}}</p>
+        <div class="menu">
+          <ul class="list">
+            <li class="item" v-for="(item, index) in res.menu" :key="index">
+              <img :src="item.src" :alt="item.name">
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="content" ref="msgContent">
+        <div class="container">
+          <div class="read-more">
+            <p>查看更多消息</p>
+          </div>
+          <div class="msg-panel">
+            <div v-for="(item, index) in msgList" :class="['msg-item', item.who]" :key="index">
+              <div class="avatar">
+                <img v-if="item.who === 'you'" :src="you.avatar">
+                <img v-else :src="me.avatar">
+              </div>
+              <div class="text">
+                <p>{{item.text}}</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="message">
-      <div class="tools">
-        <ul class="list left">
-          <li class="item" v-for="(item, index) in res.msgTools" :key="index">
-            <img :src="item.src" :alt="item.name">
-          </li>
-        </ul>
-        <div class="moremsg">
-          <span>消息记录</span>
+      <div class="message">
+        <div class="tools">
+          <ul class="list left">
+            <li class="item" v-for="(item, index) in res.msgTools" :key="index">
+              <img :src="item.src" :alt="item.name">
+            </li>
+          </ul>
+          <div class="moremsg">
+            <span>消息记录</span>
+          </div>
+        </div>
+        <div class="textarea">
+          <textarea class="msg-content" spellcheck="false" name="yourmsg" v-model="me.msg"></textarea>
+          <div class="execute">
+            <button class="btn">发送(S)</button>
+            <button class="btn">关闭(C)</button>
+          </div>
         </div>
       </div>
-      <div class="textarea">
-        <textarea class="msg-content" spellcheck="false" name="yourmsg" v-model="me.msg"></textarea>
-        <div class="execute">
-          <button class="btn">发送(S)</button>
-          <button class="btn">关闭(C)</button>
-        </div>
-      </div>
     </div>
-  </div>
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 export default {
   data () {
     return {
@@ -158,11 +159,12 @@ export default {
       },
       you: {
         name: '夜喵。',
-        imgUrl: './static/images/avatar_2.jpg',
+        avatar: './static/images/avatar_2.jpg',
         msg: '待发送的消息'
       },
       me: {
-        imgUrl: './static/images/avatar_1.png',
+        name: '地瓜',
+        avatar: './static/images/avatar_1.png',
         msg: '斯蒂芬'
       },
       msgList: [
@@ -211,6 +213,16 @@ export default {
           who: 'me'
         }
       ]
+    }
+  },
+  computed: {
+    ...mapGetters({
+      youName: 'getYouName'
+    })
+  },
+  watch: {
+    youName (val) {
+      this.you.name = val
     }
   },
   mounted () {

@@ -9,7 +9,7 @@
           <h1>对方</h1>
           <ul class="config-list">
             <li class="config-item">
-              <input type="text" placeholder="昵称">
+              <input type="text" placeholder="昵称" @change="updateYouName">
             </li>
             <li class="config-item">
               <input type="text" placeholder="头像">
@@ -51,6 +51,11 @@ export default {
           name: 'tim'
         }
       ]
+    }
+  },
+  methods: {
+    updateYouName (val) {
+      this.$store.dispatch('updateYouName', val.target.value)
     }
   }
 }
@@ -104,7 +109,7 @@ export default {
               color: #fff;
               &::-webkit-input-placeholder {
                 color: #ffffff;
-                opacity: .7;
+                opacity: 0.7;
               }
             }
             button {
