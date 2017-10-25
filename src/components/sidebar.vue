@@ -63,6 +63,7 @@ export default {
 <style lang="scss" scoped>
 .bg {
   background-image: linear-gradient(left top, #759adb, #2ecad0);
+  background-image: -webkit-linear-gradient(left top, #759adb, #2ecad0);
   .container {
     height: 100%;
     width: 80%;
