@@ -10,7 +10,7 @@ const install = Vue => {
         document.onmousemove = function (event) {
           fnMove(event, disX, disY)
         }
-        if (nodeNone === 'INPUT' || nodeNone === 'IMG' || nodeNone === 'A' || nodeNone === 'BUTTON') {
+        if (nodeNone !== 'DIV') {
           document.onmousemove = null
           document.onmouseup = null
         } else {}
