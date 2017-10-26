@@ -6,7 +6,7 @@
           <div class="avatar">
             <img :src="you.avatar" draggable="false">
           </div>
-          <p class="name">{{you.name}}</p>
+          <p class="name">{{youName}}</p>
         </div>
         <div class="tools">
           <ul class="list">

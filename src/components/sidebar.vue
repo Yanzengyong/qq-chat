@@ -9,7 +9,7 @@
           <h1>对方</h1>
           <ul class="config-list">
             <li class="config-item">
-              <input type="text" placeholder="昵称" @change="updateYouName">
+              <input type="text" placeholder="昵称" @change="updateYouName" v-model="youName">
             </li>
             <li class="config-item">
               <input type="text" placeholder="头像">
@@ -38,6 +38,7 @@
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 export default {
   data () {
     return {
@@ -52,6 +53,11 @@ export default {
         }
       ]
     }
+  },
+  computed: {
+    ...mapGetters({
+      youName: 'getYouName'
+    })
   },
   methods: {
     updateYouName (val) {
