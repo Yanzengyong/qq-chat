@@ -249,7 +249,9 @@ export default {
       this.me.msg = ''
     },
     scrollBottom () {
-      this.$refs.msgContent.scrollTop = this.$refs.msgContent.scrollHeight
+      setTimeout(() => {
+        this.$refs.msgContent.scrollTop = this.$refs.msgContent.scrollHeight
+      })
     }
   }
 }
