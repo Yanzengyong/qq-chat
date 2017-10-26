@@ -55,7 +55,7 @@
         <div class="textarea">
           <textarea class="msg-content" spellcheck="false" name="yourmsg" v-model="me.msg"></textarea>
           <div class="execute">
-            <button class="btn">发送(S)</button>
+            <button class="btn" @click="sendMsg('me')">发送(S)</button>
             <button class="btn">关闭(C)</button>
           </div>
         </div>
@@ -217,18 +217,34 @@ export default {
   },
   computed: {
     ...mapGetters({
-      youName: 'getYouName'
+      youName: 'getYouName',
+      youMsg: 'getYouMsg'
     })
   },
   watch: {
     youName (val) {
       this.you.name = val
+    },
+    youMsg (val) {
+      this.msgList.push({
+        text: val,
+        who: 'you'
+      })
     }
   },
   mounted () {
     this.$nextTick(() => {
       this.$refs.msgContent.scrollTop = this.$refs.msgContent.scrollHeight
     })
+  },
+  methods: {
+    sendMsg () {
+      this.msgList.push({
+        text: this.me.msg,
+        who: 'me'
+      })
+      this.me.msg = ''
+    }
   }
 }
 </script>

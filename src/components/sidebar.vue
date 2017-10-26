@@ -15,10 +15,10 @@
               <input type="text" placeholder="头像">
             </li>
             <li class="config-item">
-              <input type="text" placeholder="输入一条新消息">
+              <input type="text" placeholder="输入一条新消息" v-model="youMsg">
             </li>
             <li class="config-item">
-              <button>发送</button>
+              <button @click="sendMsg('you')">发送</button>
             </li>
           </ul>
         </div>
@@ -51,7 +51,8 @@ export default {
           label: 'TIM',
           name: 'tim'
         }
-      ]
+      ],
+      youMsg: ''
     }
   },
   computed: {
@@ -62,6 +63,10 @@ export default {
   methods: {
     updateYouName (val) {
       this.$store.dispatch('updateYouName', val.target.value)
+    },
+    sendMsg (who) {
+      this.$store.dispatch('updateYouMsg', this.youMsg)
+      this.youMsg = ''
     }
   }
 }
