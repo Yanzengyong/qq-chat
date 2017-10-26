@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="chat-room">
+    <div id="chat-room" v-move>
       <div class="head">
         <div class="info">
           <div class="avatar">
