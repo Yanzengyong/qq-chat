@@ -230,11 +230,14 @@ export default {
         text: val,
         who: 'you'
       })
+    },
+    msgList (val) {
+      this.scrollBottom()
     }
   },
   mounted () {
     this.$nextTick(() => {
-      this.$refs.msgContent.scrollTop = this.$refs.msgContent.scrollHeight
+      this.scrollBottom()
     })
   },
   methods: {
@@ -244,6 +247,9 @@ export default {
         who: 'me'
       })
       this.me.msg = ''
+    },
+    scrollBottom () {
+      this.$refs.msgContent.scrollTop = this.$refs.msgContent.scrollHeight
     }
   }
 }
