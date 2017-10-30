@@ -11,8 +11,9 @@
             <li class="config-item">
               <input type="text" placeholder="昵称" @change="updateYouName" v-model="youName">
             </li>
-            <li class="config-item">
-              <input type="text" placeholder="头像">
+            <li class="config-item avatar">
+              <span>头像：</span>
+              <img :src="youAvatar">
             </li>
             <li class="config-item">
               <input type="text" placeholder="输入一条新消息" v-model="youMsg">
@@ -28,8 +29,9 @@
             <li class="config-item">
               <input type="text" placeholder="昵称">
             </li>
-            <li class="config-item">
-              <input type="text" placeholder="头像">
+            <li class="config-item avatar">
+              <span>头像：</span>
+              <img :src="myAvatar">
             </li>
           </ul>
         </div>
@@ -52,7 +54,9 @@ export default {
           name: 'tim'
         }
       ],
-      youMsg: ''
+      youMsg: '',
+      youAvatar: './static/images/avatar_2.jpg',
+      myAvatar: './static/images/avatar_1.png'
     }
   },
   computed: {
@@ -130,6 +134,21 @@ export default {
               border: 1px solid #fff;
               background: transparent;
               color: #fff;
+              cursor: pointer;
+            }
+          }
+          .avatar {
+            span {
+              display: block;
+              font-size: 14px;
+              float: left;
+              color: #fff;
+            }
+            img {
+              margin-left: 20px;
+              width: 80px;
+              height: 80px;
+              border-radius: 50%;
               cursor: pointer;
             }
           }
