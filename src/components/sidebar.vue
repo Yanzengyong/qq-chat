@@ -14,7 +14,9 @@
             <li class="config-item avatar">
               <span>头像：</span>
               <img :src="youAvatar">
-              <label class="avatar-mask" for="youAvatar"></label>
+              <label class="avatar-mask" for="youAvatar">
+                <span>修改头像</span>
+              </label>
               <input type="file" id="youAvatar" @change="updateYouAvatar">
             </li>
             <li class="config-item">
@@ -34,7 +36,9 @@
             <li class="config-item avatar">
               <span>头像：</span>
               <img :src="myAvatar">
-              <label class="avatar-mask" for="myAvatar"></label>
+              <label class="avatar-mask" for="myAvatar">
+                <span>修改头像</span>
+              </label>
               <input type="file" id="myAvatar" @change="updateMyAvatar">
             </li>
           </ul>
@@ -168,17 +172,30 @@ export default {
             }
             img {
               position: absolute;
-              margin-left: 20px;
+              left: 60px;
               width: 80px;
               height: 80px;
               border-radius: 50%;
             }
             .avatar-mask {
               position: absolute;
-              margin-left: 20px;
+              left: 60px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
               height: 80px;
               width: 80px;
+              border-radius: 50%;
               cursor: pointer;
+              span {
+                display: none;
+              }
+              &:hover {
+                background: rgba(0,0,0,.5);
+                span {
+                  display: block;
+                }
+              }
             }
             input[type="file"] {
               display: none;
