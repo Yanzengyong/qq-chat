@@ -74,6 +74,9 @@ export default {
   },
   methods: {
     updateYouName (val) {
+      if (val.target.value === '地瓜') {
+        val.target.value = '对不起，不能修改为主人的名字'
+      }
       this.$store.dispatch('updateYouName', val.target.value)
     },
     sendMsg (who) {
