@@ -4,7 +4,7 @@
       <div class="head">
         <div class="info">
           <div class="avatar">
-            <img :src="you.avatar" draggable="false">
+            <img :src="youAvatar" draggable="false">
           </div>
           <p class="name">{{youName}}</p>
         </div>
@@ -31,8 +31,8 @@
           <div class="msg-panel">
             <div v-for="(item, index) in msgList" :class="['msg-item', item.who]" :key="index">
               <div class="avatar">
-                <img v-if="item.who === 'you'" :src="you.avatar">
-                <img v-else :src="me.avatar">
+                <img v-if="item.who === 'you'" :src="youAvatar">
+                <img v-else :src="meAvatar">
               </div>
               <div class="text">
                 <p>{{item.text}}</p>
@@ -218,7 +218,9 @@ export default {
   computed: {
     ...mapGetters({
       youName: 'getYouName',
-      youMsg: 'getYouMsg'
+      youAvatar: 'getYouAvatar',
+      youMsg: 'getYouMsg',
+      meAvatar: 'getMeAvatar'
     })
   },
   watch: {

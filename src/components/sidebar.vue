@@ -86,6 +86,7 @@ export default {
       reader.readAsDataURL(avatar)
       reader.onloadend = () => {
         this.youAvatar = reader.result
+        this.$store.dispatch('updateYouAvatar', reader.result)
       }
     },
     updateMyAvatar (event) {
@@ -94,6 +95,7 @@ export default {
       reader.readAsDataURL(avatar)
       reader.onloadend = () => {
         this.myAvatar = reader.result
+        this.$store.dispatch('updateMeAvatar', reader.result)
       }
     }
   }

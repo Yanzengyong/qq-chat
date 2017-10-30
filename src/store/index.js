@@ -7,12 +7,12 @@ const store = new Vuex.Store({
   state: {
     you: {
       name: '夜喵',
-      avatar: '',
+      avatar: './static/images/avatar_2.jpg',
       msg: ''
     },
     me: {
-      name: '',
-      avatar: '',
+      name: '地瓜',
+      avatar: './static/images/avatar_1.png',
       msg: ''
     }
   },
@@ -41,7 +41,7 @@ const store = new Vuex.Store({
       dis.commit('UPDATE_YOU_NAME', val)
     },
     updateYouAvatar (dis, val) {
-      dis.commit('UPDATE_YOU_AVATAR)', val)
+      dis.commit('UPDATE_YOU_AVATAR', val)
     },
     updateYouMsg (dis, val) {
       dis.commit('UPDATE_YOU_MSG', val)
