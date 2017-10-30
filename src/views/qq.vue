@@ -158,14 +158,11 @@ export default {
         more: './static/images/tools/more.png'
       },
       you: {
-        name: '夜喵。',
-        avatar: './static/images/avatar_2.jpg',
-        msg: '待发送的消息'
+        name: '夜喵。'
       },
       me: {
         name: '地瓜',
-        avatar: './static/images/avatar_1.png',
-        msg: '斯蒂芬'
+        msg: '喵？'
       },
       msgList: [
         {
@@ -287,8 +284,6 @@ export default {
         border: 1px solid #c8d7e6;
         border-radius: 50%;
         overflow: hidden;
-        img {
-        }
       }
       .name {
         display: inline-block;
@@ -376,7 +371,6 @@ export default {
               height: 30px;
               width: 30px;
               border-radius: 50%;
-              cursor: pointer;
             }
           }
           .text {
