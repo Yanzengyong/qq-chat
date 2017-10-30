@@ -14,6 +14,8 @@
             <li class="config-item avatar">
               <span>头像：</span>
               <img :src="youAvatar">
+              <label class="avatar-mask" for="youAvatar"></label>
+              <input type="file" id="youAvatar" @click="updateYouAvatar">
             </li>
             <li class="config-item">
               <input type="text" placeholder="输入一条新消息" v-model="youMsg">
@@ -32,6 +34,8 @@
             <li class="config-item avatar">
               <span>头像：</span>
               <img :src="myAvatar">
+              <label class="avatar-mask" for="myAvatar"></label>
+              <input type="file" id="myAvatar" @click="updateMyAvatar">
             </li>
           </ul>
         </div>
@@ -71,7 +75,10 @@ export default {
     sendMsg (who) {
       this.$store.dispatch('updateYouMsg', this.youMsg)
       this.youMsg = ''
-    }
+    },
+    updateYouAvatar () {
+    },
+    updateMyAvatar () {}
   }
 }
 </script>
@@ -114,7 +121,7 @@ export default {
           margin: 10px 0;
           .config-item {
             margin: 20px 0;
-            input {
+            input[type='text'] {
               width: 100%;
               height: 30px;
               line-height: 30px;
@@ -138,6 +145,8 @@ export default {
             }
           }
           .avatar {
+            position: relative;
+            height: 80px;
             span {
               display: block;
               font-size: 14px;
@@ -145,11 +154,21 @@ export default {
               color: #fff;
             }
             img {
+              position: absolute;
               margin-left: 20px;
               width: 80px;
               height: 80px;
               border-radius: 50%;
+            }
+            .avatar-mask {
+              position: absolute;
+              margin-left: 20px;
+              height: 80px;
+              width: 80px;
               cursor: pointer;
+            }
+            input[type='file'] {
+              display: none;
             }
           }
         }
