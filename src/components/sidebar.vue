@@ -15,7 +15,7 @@
               <span>头像：</span>
               <img :src="youAvatar">
               <label class="avatar-mask" for="youAvatar"></label>
-              <input type="file" id="youAvatar" @click="updateYouAvatar">
+              <input type="file" id="youAvatar" @change="updateYouAvatar">
             </li>
             <li class="config-item">
               <input type="text" placeholder="输入一条新消息" v-model="youMsg">
@@ -35,7 +35,7 @@
               <span>头像：</span>
               <img :src="myAvatar">
               <label class="avatar-mask" for="myAvatar"></label>
-              <input type="file" id="myAvatar" @click="updateMyAvatar">
+              <input type="file" id="myAvatar" @change="updateMyAvatar">
             </li>
           </ul>
         </div>
@@ -76,9 +76,22 @@ export default {
       this.$store.dispatch('updateYouMsg', this.youMsg)
       this.youMsg = ''
     },
-    updateYouAvatar () {
+    updateYouAvatar (event) {
+      let reader = new FileReader()
+      let avatar = event.target.files[0]
+      reader.readAsDataURL(avatar)
+      reader.onloadend = () => {
+        this.youAvatar = reader.result
+      }
     },
-    updateMyAvatar () {}
+    updateMyAvatar (event) {
+      let reader = new FileReader()
+      let avatar = event.target.files[0]
+      reader.readAsDataURL(avatar)
+      reader.onloadend = () => {
+        this.myAvatar = reader.result
+      }
+    }
   }
 }
 </script>
@@ -121,7 +134,7 @@ export default {
           margin: 10px 0;
           .config-item {
             margin: 20px 0;
-            input[type='text'] {
+            input[type="text"] {
               width: 100%;
               height: 30px;
               line-height: 30px;
@@ -167,7 +180,7 @@ export default {
               width: 80px;
               cursor: pointer;
             }
-            input[type='file'] {
+            input[type="file"] {
               display: none;
             }
           }
