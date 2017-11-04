@@ -9,7 +9,7 @@
           <h1>对方</h1>
           <ul class="config-list">
             <li class="config-item">
-              <input type="text" placeholder="昵称" @change="updateYouName" v-model="youName">
+              <input type="text" placeholder="昵称" v-model="youName">
             </li>
             <li class="config-item avatar">
               <span>头像：</span>
@@ -68,17 +68,21 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      youName: 'getYouName'
-    })
+    ...mapGetters(['getYouName']),
+    youName: {
+      get: function () {
+        return this.getYouName
+      },
+      set: function (val) {
+        console.log(val)
+        if (val === '地瓜') {
+          val = '对不起，不能修改为主人的名字'
+        }
+        this.$store.dispatch('updateYouName', val)
+      }
+    }
   },
   methods: {
-    updateYouName (val) {
-      if (val.target.value === '地瓜') {
-        val.target.value = '对不起，不能修改为主人的名字'
-      }
-      this.$store.dispatch('updateYouName', val.target.value)
-    },
     sendMsg (who) {
       this.$store.dispatch('updateYouMsg', this.youMsg)
       this.youMsg = ''
@@ -196,7 +200,7 @@ export default {
                 display: none;
               }
               &:hover {
-                background: rgba(0,0,0,.5);
+                background: rgba(0, 0, 0, 0.5);
                 span {
                   display: block;
                 }
