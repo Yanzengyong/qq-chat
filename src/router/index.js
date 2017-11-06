@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import qq from '@/views/qq'
-import tim from '@/views/tim'
+import personal from '@/views/personal'
+import group from '@/views/group'
 
 Vue.use(Router)
 
@@ -9,17 +9,17 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/qq'
+      redirect: '/personal'
     },
     {
-      path: '/qq',
-      name: 'qq',
-      component: qq
+      path: '/personal',
+      name: 'personal',
+      component: personal
     },
     {
-      path: '/tim',
-      name: 'tim',
-      component: tim
+      path: '/group',
+      name: 'group',
+      component: group
     }
   ]
 })

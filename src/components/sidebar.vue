@@ -54,12 +54,12 @@ export default {
     return {
       routeList: [
         {
-          label: 'QQ',
-          name: 'qq'
+          label: '个人版',
+          name: 'personal'
         },
         {
-          label: 'TIM',
-          name: 'tim'
+          label: 'QQ群',
+          name: 'group'
         }
       ],
       youMsg: '',
