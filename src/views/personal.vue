@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="chat-room" v-move>
+    <div class="chat-room" v-move>
       <div class="head">
         <div class="info">
           <div class="avatar">
@@ -125,7 +125,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-#chat-room {
+.chat-room {
   position: relative;
   top: 80px;
   left: 10%;
