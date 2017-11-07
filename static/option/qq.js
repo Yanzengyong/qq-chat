@@ -1,4 +1,5 @@
-const personal = {
+export const personal = {
+
   tools: [{
     name: '音频',
     src: './static/images/tools/toobar_audio.png'
@@ -85,7 +86,4 @@ const personal = {
   more: './static/images/tools/more.png'
 }
 
-const group = {
-}
-
-export default {personal, group}
+export const group = {}

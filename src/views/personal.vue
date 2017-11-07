@@ -66,11 +66,11 @@
 <script>
 import { mapGetters } from 'vuex'
 import chatMsg from '../../static/option/chat.js'
-import qq from '../../static/option/qq.js'
+import { personal } from '../../static/option/qq.js'
 export default {
   data () {
     return {
-      res: qq.personal,
+      res: personal,
       you: {
         name: '夜喵。'
       },
