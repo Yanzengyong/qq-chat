@@ -30,12 +30,15 @@
           </div>
           <div class="msg-panel">
             <div v-for="(item, index) in msgList" :class="['msg-item', item.who]" :key="index">
-              <div class="avatar">
-                <img v-if="item.who === 'you'" :src="youAvatar">
-                <img v-else :src="meAvatar">
-              </div>
-              <div class="text">
-                <p>{{item.text}}</p>
+              <p class="time">{{item.time}}</p>
+              <div class="msg">
+                <div class="avatar">
+                  <img v-if="item.who === 'you'" :src="youAvatar">
+                  <img v-else :src="meAvatar">
+                </div>
+                <div class="text">
+                  <p>{{item.text}}</p>
+                </div>
               </div>
             </div>
           </div>
@@ -232,25 +235,6 @@ export default {
           width: 100%;
           min-height: 50px;
           margin: 10px 0;
-          .avatar {
-            position: relative;
-            height: 30px;
-            width: 30px;
-            img {
-              height: 30px;
-              width: 30px;
-              border-radius: 50%;
-            }
-          }
-          .text {
-            padding: 13px 10px;
-            margin: 0 15px;
-            border-radius: 6px;
-            z-index: 500;
-            p {
-              font-size: 13px;
-            }
-          }
           &.you {
             float: left;
             .avatar {
@@ -295,6 +279,33 @@ export default {
               float: right;
               color: #fff;
               background: #009bdb;
+            }
+          }
+          .time {
+            text-align: center;
+            font-size: 12px;
+            color: #aaa;
+            margin: 5px 0;
+          }
+          .msg {
+            .avatar {
+              position: relative;
+              height: 30px;
+              width: 30px;
+              img {
+                height: 30px;
+                width: 30px;
+                border-radius: 50%;
+              }
+            }
+            .text {
+              padding: 13px 10px;
+              margin: 0 15px;
+              border-radius: 6px;
+              z-index: 500;
+              p {
+                font-size: 13px;
+              }
             }
           }
         }
