@@ -30,7 +30,7 @@
           </div>
           <div class="msg-panel">
             <div v-for="(item, index) in msgList" :class="['msg-item', item.who]" :key="index">
-              <p class="time">{{item.time}}</p>
+              <p class="time">{{ $moment(item.time).format('YYYY/MM/DD h:mm:ss') }}</p>
               <div class="msg">
                 <div class="avatar">
                   <img v-if="item.who === 'you'" :src="youAvatar">
@@ -234,7 +234,7 @@ export default {
         .msg-item {
           width: 100%;
           min-height: 50px;
-          margin: 10px 0;
+          margin: 10px 0 0;
           &.you {
             float: left;
             .avatar {
@@ -285,7 +285,7 @@ export default {
             text-align: center;
             font-size: 12px;
             color: #aaa;
-            margin: 5px 0;
+            margin: 10px 0;
           }
           .msg {
             .avatar {
