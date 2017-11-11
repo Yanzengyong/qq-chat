@@ -1,6 +1,7 @@
 export const personal = {
 
-  tools: [{
+  tools: [
+  {
     name: '音频',
     src: './static/images/tools/toobar_audio.png'
   },
@@ -86,4 +87,42 @@ export const personal = {
   more: './static/images/tools/more.png'
 }
 
-export const group = {}
+export const group = {
+  tools: [
+  {
+    name: '聊天'
+  },
+  {
+    name: '公告'
+  },
+  {
+    name: '相册'
+  },
+  {
+    name: '文件'
+  },
+  {
+    name: '活动'
+  },
+  {
+    name: '设置'
+  }
+  ],
+  menu: [{
+    name: '设置',
+    src: './static/images/menu/setting.png'
+  },
+  {
+    name: '缩小',
+    src: './static/images/menu/min.png'
+  },
+  {
+    name: '放大',
+    src: './static/images/menu/max.png'
+  },
+  {
+    name: '关闭',
+    src: './static/images/menu/close.png'
+  }
+  ]
+}
