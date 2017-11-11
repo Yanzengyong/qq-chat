@@ -30,7 +30,7 @@
           </div>
           <div class="msg-panel">
             <div v-for="(item, index) in msgList" :class="['msg-item', item.who]" :key="index">
-              <p class="time">{{ $moment(item.time).format('YYYY/MM/DD h:mm:ss') }}</p>
+              <p class="time">{{ $moment(item.time).format('YYYY/MM/DD HH:mm:ss') }}</p>
               <div class="msg">
                 <div class="avatar">
                   <img v-if="item.who === 'you'" :src="youAvatar">
@@ -99,7 +99,8 @@ export default {
     youMsg (val) {
       this.msgList.push({
         text: val,
-        who: 'you'
+        who: 'you',
+        time: this.$moment().unix() * 1000
       })
     },
     msgList (val) {
@@ -115,7 +116,8 @@ export default {
     sendMsg () {
       this.msgList.push({
         text: this.me.msg,
-        who: 'me'
+        who: 'me',
+        time: this.$moment().unix() * 1000
       })
       this.me.msg = ''
     },
