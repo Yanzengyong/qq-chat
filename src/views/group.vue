@@ -50,8 +50,8 @@ export default {
 <style lang="scss" scoped>
 .chat-room {
   position: relative;
-  top: 80px;
-  left: 10%;
+  top: 10%;
+  left: 30%;
   background: #d5e6f6;
   width: 620px;
   height: 620px;
