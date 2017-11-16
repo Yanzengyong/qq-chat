@@ -120,11 +120,19 @@ export default {
     height: 100%;
     padding-top: 80px;
     .left {
-      float: left;
+      width: auto;
+      height: 100%;
+      margin-right: 250px;
+      border-right: 1px solid #ddd;
       .content {}
       .message {}
     }
     .right {
+      position: absolute;
+      top: 80px;
+      right: 0;
+      width: 250px;
+      height: calc(100% - 80px);
       .notice {}
       .apps {}
       .member {}
