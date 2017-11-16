@@ -120,12 +120,26 @@ export default {
     height: 100%;
     padding-top: 80px;
     .left {
+      position: relative;
       width: auto;
       height: 100%;
       margin-right: 250px;
       border-right: 1px solid #ddd;
-      .content {}
-      .message {}
+      .content {
+        position: absolute;
+        top: 80px;
+        height: 410px;
+        width: 100%;
+        overflow-y: auto;
+      }
+      .message {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 130px;
+        border-top: 1px solid #ddd;
+        background: #d5e6f6;
+      }
     }
     .right {
       position: absolute;
@@ -133,9 +147,12 @@ export default {
       right: 0;
       width: 250px;
       height: calc(100% - 80px);
-      .notice {}
-      .apps {}
-      .member {}
+      .notice {
+      }
+      .apps {
+      }
+      .member {
+      }
     }
   }
 }
