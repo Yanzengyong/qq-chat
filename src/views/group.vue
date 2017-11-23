@@ -29,7 +29,10 @@
           <div class="message"></div>
         </div>
         <div class="right">
-          <div class="notice"></div>
+          <div class="notice container">
+            <h2>群通知</h2>
+            <div class="notice-null"><img src="" alt=""></div>
+          </div>
           <div class="apps"></div>
           <div class="member"></div>
         </div>
@@ -147,7 +150,18 @@ export default {
       right: 0;
       width: 250px;
       height: calc(100% - 80px);
+      .container {
+        padding: 0 10px;
+      }
       .notice {
+        margin: 5px 0;
+        border-bottom: 1px solid #ccc;
+        height: 160px;
+        h2 {
+          font-size: 15px;
+          font-weight: 500;
+          text-shadow: 0 0 0 #000;
+        }
       }
       .apps {
       }
