@@ -126,7 +126,7 @@ export default {
       position: relative;
       width: auto;
       height: 100%;
-      margin-right: 250px;
+      margin-right: 200px;
       border-right: 1px solid #ddd;
       .content {
         position: absolute;
@@ -148,7 +148,7 @@ export default {
       position: absolute;
       top: 80px;
       right: 0;
-      width: 250px;
+      width: 200px;
       height: calc(100% - 80px);
       .container {
         padding: 0 10px;
